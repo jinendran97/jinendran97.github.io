@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Eats - Welcome</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        /* Custom CSS Styles */
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .navbar {
+            padding: 1rem 0;
+        }
+        .navbar-brand {
+            font-size: 3.5rem;
+            font-family: 'Poppins', sans-serif; /* Example of a Google Font */
+        }
+        
+        .brand-highlight {
+            color: #ff6b6b; /* Highlight color */
+            font-weight: bold;
+            font-style: italic;
+            /* Add more custom styles as desired */
+        }
+        
+        #showcase {
+            background: url('{% static "images/bg3.webp" %}') center/cover no-repeat;
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+            color: #000;
+        }
+        #showcase h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        #showcase p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: #ff6b6b;
+            border-color: #ff6b6b;
+            font-size: 1.2rem;
+            padding: 0.75rem 2rem;
+        }
+        .btn-primary:hover {
+            background-color: #f03232;
+            border-color: #f03232;
+        }
+        #specials {
+            padding: 2rem 0;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        #specials h2 {
+            margin-bottom: 3rem;
+            color: #ff6b6b;
+        }
+        .card {
+            border: none;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #343a40;
+        }
+        .offer-title {
+            font-size: 1.2rem;
+            color: #343a40;
+            font-weight: bold;
+        }
+        
+        .offer-description {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        
+        .card {
+            border: none;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-img-top {
+            border-radius: 10px 10px 0 0;
+        }
+        
+        #about {
+            padding: 2rem 0;
+        }
+        #about a {
+            margin-bottom: 2rem;
+            color: #ff6b6b;
+            font-size: 2rem;
+            text-decoration: none;
+        }
+        #footer {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        #footer span {
+            font-size: 1.2rem;
+        }
+        .welcome-message {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="">Delicious <span class="brand-highlight">Eats</span></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Showcase Section -->
+    <section id="showcase">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1>Welcome to</h1>
+                    <h2 class="text-uppercase">Delicious Eats</h2>
+                    <p class="welcome-message text-dark">Experience the essence of taste with our exquisite dishes crafted with passion. Indulge in a culinary journey that delights the senses.</p>
+                    <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">Explore Our Menu</a>
+                </div>                
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials Section -->
+    <section id="specials">
+        <div class="container">
+            <h2 class="text-center mb-5">Special Offers</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'images/offer1.jpg' %}" class="card-img-top" alt="Special Offer">
+                        <div class="card-body">
+                            <h5 class="card-title offer-title">Special Offer 1</h5>
+                            <p class="card-text offer-description">Get 20% off on all burgers. Use code BURGER20. Hurry, offer valid for a limited time!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'images/offer2.jpg' %}" class="card-img-top" alt="Special Offer">
+                        <div class="card-body">
+                            <h5 class="card-title offer-title">Special Offer 2</h5>
+                            <p class="card-text offer-description">Enjoy a free dessert with every meal. Treat yourself today!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{% static 'images/offer3.jpg' %}" class="card-img-top" alt="Special Offer">
+                        <div class="card-body">
+                            <h5 class="card-title offer-title">Special Offer 3</h5>
+                            <p class="card-text offer-description">Try our new seasonal menu and receive a complimentary drink. Don't miss out!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>                
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <a href="about/">About Us</a>
+            <p>Welcome to Delicious Eats, where every dish tells a story. We believe in creating memorable experiences through food. Our chefs blend passion and creativity to deliver mouthwatering dishes that leave a lasting impression. Join us and embark on a culinary adventure filled with flavors and excitement.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <span>&copy; 2024 Delicious Eats. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

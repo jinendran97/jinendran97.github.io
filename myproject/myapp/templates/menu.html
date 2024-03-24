@@ -1,0 +1,485 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Delicious Eats</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif; /* Example of a Google Font */
+        }
+        
+        .brand-highlight {
+            color: #ff6b6b; /* Highlight color */
+            font-weight: bold;
+            font-style: italic;
+            /* Add more custom styles as desired */
+        }
+        .delicious-menu {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #000; /* Your desired color */
+            margin-top: 50px; /* Adjust spacing from the top */
+            margin-bottom: 30px; /* Adjust spacing from the bottom */
+            text-align: left; /* Align the text to the left */
+        }
+        /* Styling for Delicious Menu */
+        /* Styling for Delicious Menu */
+        /* Styling for Delicious Menu */
+        .container h2 {
+            font-size: 2.2rem; /* Increase font size */
+            margin-bottom: 20px; /* Increase bottom margin */
+        }
+        
+        /* Styling for Food Categories */
+        .container ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+            margin-bottom: 10px; /* Reduce bottom margin */
+        }
+        
+        .container ul li {
+            margin-bottom: 15px; /* Increase spacing between categories */
+        }
+        
+        .container ul li a {
+            font-size: 1.3rem; /* Adjust font size */
+            text-decoration: none; /* Remove underline */
+            color: #333; /* Set default text color */
+            transition: color 0.3s; /* Add smooth color transition */
+        }
+        
+        .container ul li a:hover {
+            color: #ff6b6b; /* Change text color on hover */
+        }
+
+        
+        /* Custom CSS Styles */
+#special-offers {
+    padding-bottom: 5rem; /* Increase padding */
+}
+
+#special-offers h2 {
+    margin-bottom: 2rem; /* Decrease margin */
+}
+
+#special-offers .card-title {
+    font-size: 1.25rem; /* Decrease font size */
+}
+
+#special-offers .card-text {
+    font-size: 1rem; /* Decrease font size */
+}
+.menu-highlight {
+    color: #ff6b6b; /* Highlight color */
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Custom CSS Styles for Food Items */
+    .food-category {
+        margin-bottom: 30px; /* Adjust spacing between food categories */
+    }
+
+    .food-item {
+        margin-bottom: 20px;
+    }
+
+    .food-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .food-details {
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 0 0 5px 5px;
+    }
+
+    .food-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .food-type {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 5px;
+    }
+
+    .food-price {
+        font-size: 18px;
+        color: #333;
+        margin-top: 5px;
+    }
+
+    .veg-logo, .non-veg-logo {
+        width: 20px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    .veg-logo {
+        fill: green;
+    }
+
+    .non-veg-logo {
+        fill: red;
+    }
+
+    /* Custom CSS for the scroll-to-top button */
+    #scrollToTopBtn {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #ff6b6b;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #scrollToTopBtn:hover {
+        background-color: #e85454;
+    }
+  
+    
+        
+        
+        
+    </style>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'index' %}">Delicious <span class="brand-highlight">Eats</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section id="delicious-menu">
+        <div class="container">
+            <h1 class="delicious-menu">Delicious <span class="menu-highlight">Menu</span></h1>
+        </div>
+
+        <!-- MENU -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-unstyled">
+                        <!-- Existing food categories -->
+                        
+                        <li><a href="#starters">Starters</a></li>
+                        <li><a href="#main-courses">Main Courses</a></li>
+                        <li><a href="#side-dishes">Side Dishes</a></li>
+                        <li><a href="#pizza">Pizza</a></li>
+                        <li><a href="#dessert">Dessert</a></li>
+                        <li><a href="#drinks">Drinks</a></li>
+                        <li><a href="#best-foods">Best Foods</a></li>
+
+                    </ul>
+                </div>              
+                <div class="col-md-9">
+                    <!-- Placeholder for food items -->
+                    <!-- Starters -->
+                    <div id="starters" class="food-category">
+                        <h2>Starters</h2>
+                        <div class="food-item">
+                            <img src="{% static 'images/frenchfriesss.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">French Fries</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                </p>
+                                <p class="food-price">₹55</p>
+                            </div>
+                        </div>
+
+                        <div class="food-item">
+                            <img src="{% static 'images/chickenpopcorn.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Chicken Popcorn</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+                                </p>
+                                <p class="food-price">₹99</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/wings.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Chicken Wings</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+                                </p>
+                                <p class="food-price">₹99</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/lollipop2.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Chicken Lollipop</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+                                </p>
+                                <p class="food-price">₹99</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/mozz2.webp' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Mozzarella Sticks</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                </p>
+                                <p class="food-price">₹75</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/burger.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Burger</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+
+                                </p>
+                                <p class="food-price">₹69 - ₹119</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/sw.png' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Sandwich</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+
+                                </p>
+                                <p class="food-price">₹39 - ₹109</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/shawarma3.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Shawarma</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+
+                                </p>
+                                <p class="food-price">₹69</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Main Courses -->
+                    <div id="main-courses" class="food-category">
+                        <h2>Main Courses</h2>
+                        <div class="food-item">
+                            <img src="{% static 'images/chickenrice1.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Chicken Fried Rice</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+                                </p>
+                                <p class="food-price">₹150</p>
+                            </div>
+                        </div>
+
+                        <div class="food-item">
+                            <img src="{% static 'images/chickenbiriyani1.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Chicken Biriyani</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+                                </p>
+                                <p class="food-price">₹180</p>
+                            </div>
+                        </div>
+
+                        <div class="food-item">
+                            <img src="{% static 'images/vegfriedrice.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Veg Fried Rice</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                </p>
+                                <p class="food-price">₹120</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side Dishes -->
+                    <div id="side-dishes" class="food-category">
+                        <h2>Side Dishes</h2>
+                        <div class="food-item">
+                            <img src="{% static 'images/chicken65.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Chicken 65</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/nonveglogo.png' %}" alt="Non-Veg" class="non-veg-logo">
+                                </p>
+                                <p class="food-price">₹99</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/pannertikka.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Panner Tikka</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                </p>
+                                <p class="food-price">₹89</p>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/babycorn.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Spicy Babycorn</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                </p>
+                                <p class="food-price">₹75</p>
+                            </div>
+                            <div class="food-item">
+                                <img src="{% static 'images/gobi2.webp' %}" alt="Food" class="food-img">
+                                <div class="food-details">
+                                    <h3 class="food-name">Gobi Manchurian </h3>
+                                    <p class="food-type">
+                                        <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                    </p>
+                                    <p class="food-price">₹120</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="{% static 'images/soya2.webp' %}" alt="Food" class="food-img">
+                                <div class="food-details">
+                                    <h3 class="food-name">Soya Manchurian</h3>
+                                    <p class="food-type">
+                                        <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                    </p>
+                                    <p class="food-price">₹110</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="food-item">
+                            <img src="{% static 'images/mushroom.jpg' %}" alt="Food" class="food-img">
+                            <div class="food-details">
+                                <h3 class="food-name">Garlic Mushroom</h3>
+                                <p class="food-type">
+                                    <img src="{% static 'images/veglogo.png' %}" alt="Veg" class="veg-logo">
+                                </p>
+                                <p class="food-price">₹99</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pizza -->
+
+                    <!-- Dessert -->
+                    
+                    <!-- Drinks -->
+                    
+                    <!-- Best Foods -->
+                    
+                </div>
+            </div>
+        </div>
+         
+
+    <!-- Special Offers Section -->
+<section id="special-offers" class="mt-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Special Offers</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/chickenpopcorn.jpg' %}" class="card-img-top" alt="Special Offer">
+                    <div class="card-body">
+                        <h5 class="card-title">Special Offer 1</h5>
+                        <p class="card-text">Get 20% off on all burgers. Use code BURGER20. Hurry, offer valid for a limited time!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/frenchfriesss.jpg' %}" class="card-img-top" alt="Special Offer">
+                    <div class="card-body">
+                        <h5 class="card-title">Special Offer 2</h5>
+                        <p class="card-text">Enjoy a free dessert with every meal. Treat yourself today!<br><br> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/chickenpopcorn.jpg' %}" class="card-img-top" alt="Special Offer">
+                    <div class="card-body">
+                        <h5 class="card-title">Special Offer 3</h5>
+                        <p class="card-text">Try our new seasonal menu and receive a complimentary drink. Don't miss out!<br><br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<button id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+
+
+
+        
+
+    <!-- Footer -->
+    <!--
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">© 2024 Delicious Eats</span>
+        </div>
+    </footer>
+-->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
